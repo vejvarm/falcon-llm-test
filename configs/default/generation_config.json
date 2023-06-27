@@ -1,0 +1,10 @@
+{
+  "_from_model_config": true,
+  "bos_token_id": 1,
+  "eos_token_id": 11,
+  "max_new_tokens": 100,
+  "penalty_alpha": 0,
+  "temperature": 0.0,
+  "top_k": 100,
+  "transformers_version": "4.31.0.dev0"
+}
