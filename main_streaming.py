@@ -1,7 +1,10 @@
 import argparse
+import os
 import pathlib
 
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, TextStreamer
+
+# os.environ["RWKV_CUDA_ON"] = "1"
 
 
 def generate_config(model_path, tokenizer):
