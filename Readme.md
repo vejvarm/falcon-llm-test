@@ -8,6 +8,7 @@ Requires Anaconda or Miniconda installed ([guide](https://conda.io/projects/cond
 ``` bash
 git clone https://github.com/vejvarm/falcon-llm-test.git
 cd ./falcon-llm-test
+conda create -p ./env python=3.10 -y
 conda activate ./env
 conda install cudatoolkit
 pip install -r requirements.txt
