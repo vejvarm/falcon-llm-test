@@ -32,8 +32,8 @@ def main(args):
         raise FileNotFoundError(f"No file found at given 'prompt-file' path ({path_to_prompt})")
 
     tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(model_path, load_in_8bit=True, trust_remote_code=True)
-    streamer = TextStreamer(tokenizer, skip_prompt=True)
+    model = AutoModelForCausalLM.from_pretrained(model_path, load_in_8bit=True, trust_remote_code=True)  # TODO: add args for 8bit/4bit quantizations
+    streamer = TextStreamer(tokenizer, skip_prompt=args.skip_prompt)
 
     # generate_config(model_path, tokenizer)
     config = GenerationConfig.from_pretrained(args.config_folder)
@@ -49,6 +49,7 @@ if __name__ == "__main__":
     parser.add_argument("--prompt-file", type=str, default="inputs/example-0.prompt", help="path to .prompt file")
     parser.add_argument("--model", type=str, default="tiiuae/falcon-7b-instruct", help="HF model name/local path")
     parser.add_argument("--config-folder", type=str, default="configs/default", help="path to config folder")
+    parser.add_argument("--skip-prompt", action='store_true', help="Skip printing the input prompt.")
 
     args = parser.parse_args()
     main(args)
