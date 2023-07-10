@@ -6,6 +6,6 @@
   "penalty_alpha": 0,
   "temperature": 0.0,
   "top_k": 100,
-  "stop_sequence": "\n",
+  "stop_sequence": "}",
   "transformers_version": "4.31.0.dev0"
 }

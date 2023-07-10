@@ -32,7 +32,7 @@ def main(args):
         raise FileNotFoundError(f"No file found at given 'prompt-file' path ({path_to_prompt})")
 
     tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(model_path, load_in_8bit=True, trust_remote_code=True)  # TODO: add args for 8bit/4bit quantizations
+    model = AutoModelForCausalLM.from_pretrained(model_path, load_in_8bit=True, trust_remote_code=True, device_map="auto")  # TODO: add args for 8bit/4bit quantizations
     streamer = TextStreamer(tokenizer, skip_prompt=args.skip_prompt)
 
     # generate_config(model_path, tokenizer)
